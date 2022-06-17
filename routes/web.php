@@ -18,5 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('post',function (){
-    return view('post');
+    return view('post', [
+        'post' => '<h1>Hello World!</h1>'
+    ]);
 });
