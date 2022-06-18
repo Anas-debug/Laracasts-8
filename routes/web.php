@@ -17,8 +17,10 @@ Route::get('/', function () {
     return view('posts');
 });
 
-Route::get('post',function (){
-    return view('post', [
-        'post' => '<h1>Hello World!</h1>'
-    ]);
+Route::get('posts/{post}',function ($slug){
+    return $slug;
+    // $post = __DIR__.'\..\resources\posts\my-first-post.html';
+    // return view('post', [
+    //     'post' => file_get_contents($post)
+    // ]);
 });
