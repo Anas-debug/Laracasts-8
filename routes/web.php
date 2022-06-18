@@ -18,9 +18,10 @@ Route::get('/', function () {
 });
 
 Route::get('posts/{post}',function ($slug){
-    return $slug;
-    // $post = __DIR__.'\..\resources\posts\my-first-post.html';
-    // return view('post', [
-    //     'post' => file_get_contents($post)
-    // ]);
+    // return "{$slug} is in the URI";
+    $post = file_get_contents(__DIR__."/../resources/posts/{$slug}.html");
+
+    return view('post', [
+        'post' => $post
+    ]);
 });
