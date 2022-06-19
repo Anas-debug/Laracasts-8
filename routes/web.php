@@ -25,10 +25,13 @@ Route::get('posts/{post}',function ($slug){
         return redirect('/');
         // ddd('file does not exist');
         // abort(404);
-    } else {
-        $post = file_get_contents($path);
+    }
+        $post = cache()->remember("posts.{$slug}", now()->addMinutes(20), function() use ($path){
+            var_dump('file_get_contents');
+            return file_get_contents($path);   
+        });
+        
         return view('post', [
             'post' => $post
         ]); 
-    }
 })->where('post', '[A-z_\-]+');
