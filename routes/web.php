@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,11 @@ Route::get('/', function () {
 Route::get('posts/{post}',function ($slug){
 
     // Find a post by its slug and pass it to a view called "slug"
+    $post = Post::find($slug);
+
+    return view("post", [
+        'post' => $post
+    ]);
 
 
     // // return "{$slug} is in the URI";
