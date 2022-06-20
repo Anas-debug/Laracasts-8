@@ -18,20 +18,24 @@ Route::get('/', function () {
 });
 
 Route::get('posts/{post}',function ($slug){
-    // return "{$slug} is in the URI";
-    $path = __DIR__."/../resources/posts/{$slug}.html";
 
-    if(! file_exists($path)){
-        return redirect('/');
-        // ddd('file does not exist');
-        // abort(404);
-    }
-        $post = cache()->remember("posts.{$slug}", now()->addMinutes(20), function() use ($path){
-            var_dump('file_get_contents');
-            return file_get_contents($path);   
-        });
+    // Find a post by its slug and pass it to a view called "slug"
+
+
+    // // return "{$slug} is in the URI";
+    // $path = __DIR__."/../resources/posts/{$slug}.html";
+
+    // if(! file_exists($path)){
+    //     return redirect('/');
+    //     // ddd('file does not exist');
+    //     // abort(404);
+    // }
+    //     $post = cache()->remember("posts.{$slug}", now()->addMinutes(20), function() use ($path){
+    //         var_dump('file_get_contents');
+    //         return file_get_contents($path);   
+    //     });
         
-        return view('post', [
-            'post' => $post
-        ]); 
+    //     return view('post', [
+    //         'post' => $post
+    //     ]); 
 })->where('post', '[A-z_\-]+');
