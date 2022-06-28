@@ -16,10 +16,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $post = Post::all();
-    //We shoud add the all method in the Post Model
+    $posts = Post::all();
+
+    ddd($posts);
+
     return view('posts', [
-        'posts' => Post::all()
+        'posts' => $posts
     ]);
 });
 
