@@ -9,6 +9,7 @@ class Post
     {
         $files = File::files(resource_path("posts/"));
 
+        //To be replaced with Laravel Collections
         return array_map(fn($file) => $file->getContents(), $files);
     }
 
