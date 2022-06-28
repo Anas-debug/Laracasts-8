@@ -7,7 +7,9 @@ class Post
 {
     public static function all()
     {
-        return File::files(resource_path("posts/"));
+        $files = File::files(resource_path("posts/"));
+
+        return array_map(fn($file) => $file->getContents(), $files);
     }
 
     public static function find($slug)
