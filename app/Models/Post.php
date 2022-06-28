@@ -5,8 +5,11 @@ class Post
 {
     public static function find($slug)
     {
+        // Laravel helper function
+        base_path();
+
         // checks if the file exists
-        if(!file_exists($path = __DIR__."/../ressources/posts/{$slug}.html")){
+        if( !file_exists($path = ressource_path("posts/{$slug}.html") ) ){
             return redirect('/');
         }
 
