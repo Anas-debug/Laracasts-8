@@ -2,7 +2,7 @@
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
-use Spatie\YAMLFrontMatter\YamlFrontMatter;
+// use Spatie\YAMLFrontMatter\YamlFrontMatter;
 
 
 /*
@@ -17,9 +17,12 @@ use Spatie\YAMLFrontMatter\YamlFrontMatter;
 */
 
 Route::get('/', function () {
-    $document = YamlFrontMatter::parseFile(
-        resource_path('posts/my-fourth-post.html')
-    );
+    // $document = YamlFrontMatter::parseFile(
+    //     resource_path('posts/my-fourth-post.html')
+    // );
+
+        // Test
+        $document = \Spatie\YamlFrontMatter\YamlFrontMatter::parse($yaml);
 
     ddd($document);
 
