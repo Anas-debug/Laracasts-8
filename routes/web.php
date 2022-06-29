@@ -2,6 +2,7 @@
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 
 /*
@@ -16,7 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('posts', ['posts' => Post::all()]);
+    YamlFrontMatter::parseFile(
+        ressource
+    );
+
+
+    // return view('posts', ['posts' => Post::all()]);
 });
 
 Route::get('posts/{post}', function ($slug){
